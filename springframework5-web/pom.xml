@@ -3,7 +3,7 @@
     <parent>
         <artifactId>springframework5</artifactId>
         <groupId>com.bigdata</groupId>
-        <version>0.0.2</version>
+        <version>0.0.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.bigdata</groupId>
-            <version>0.0.2</version>
+            <version>0.0.3</version>
             <artifactId>springframework5-data</artifactId>
         </dependency>
         <dependency>
