@@ -40,6 +40,6 @@
 </build>
 <scm>
 	<developerConnection>scm:git:git@github.com:rashid372/springframework5.git</developerConnection>
-  <tag>0.0.2</tag>
+  <tag>Head</tag>
   </scm>
 </project>
