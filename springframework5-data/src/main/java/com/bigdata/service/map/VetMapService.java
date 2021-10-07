@@ -2,10 +2,11 @@ package com.bigdata.service.map;
 
 import com.bigdata.model.Vet;
 import com.bigdata.service.CurdService;
+import com.bigdata.service.VetService;
 
 import java.util.Set;
 
-public class VetMapService extends AbstractMapService<Vet,Long> implements CurdService<Vet,Long> {
+public class VetMapService extends AbstractMapService<Vet,Long> implements VetService {
     @Override
     public Vet findById(Long id) {
         return super.findById(id);
