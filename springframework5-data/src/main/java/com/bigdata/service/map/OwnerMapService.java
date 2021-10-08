@@ -3,9 +3,11 @@ package com.bigdata.service.map;
 import com.bigdata.model.Owner;
 import com.bigdata.service.CurdService;
 import com.bigdata.service.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerMapService extends AbstractMapService<Owner,Long> implements OwnerService {
     @Override
     public Owner findById(Long id) {
