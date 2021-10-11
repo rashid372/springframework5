@@ -1,20 +1,26 @@
 package com.bigdata.service.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.bigdata.model.BaseEntity;
 
-public class AbstractMapService<T,ID> {
-   protected Map<ID,T> map=new HashMap<>();
+import java.util.*;
+
+public class AbstractMapService<T extends BaseEntity,ID extends Long> {
+   protected Map<Long,T> map=new HashMap<>();
     Set<T> findAll(){
         return  new HashSet<>(map.values());
     }
     T findById(ID id){
         return map.get(id);
     }
-    T save(ID id,T object){
-        map.put(id,object);
+    T save(T object){
+        if(object != null){
+            if (object.getId() == null){
+                map.put(getNextId(),object);
+            }else {
+                throw new RuntimeException("Object cannot be null");
+            }
+        }
+
         return object;
     }
     void delete(T object){
@@ -22,5 +28,14 @@ public class AbstractMapService<T,ID> {
     }
     void deleteById(ID id){
         map.remove(id);
+    }
+    private Long getNextId(){
+        Long nextId=null;
+        try {
+            nextId= Collections.max(map.keySet()) + 1L;
+        }catch (NoSuchElementException ex){
+            nextId=1L;
+        }
+        return nextId;
     }
 }
